@@ -19,6 +19,8 @@ final class Selector
     /**
      * @throws NoCodeCoverageDriverAvailableException
      * @throws PcovNotAvailableException
+     * @throws TurbocovCannotCollectException
+     * @throws TurbocovNotAvailableException
      * @throws XdebugNotAvailableException
      * @throws XdebugNotEnabledException
      * @throws XdebugVersionNotSupportedException
@@ -29,6 +31,10 @@ final class Selector
 
         if ($runtime->hasPCOV()) {
             return new PcovDriver($filter);
+        }
+
+        if ($runtime->hasTurbocov()) {
+            return new TurbocovDriver;
         }
 
         if ($runtime->hasXdebug()) {

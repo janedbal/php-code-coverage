@@ -6,6 +6,9 @@ parameters:
         - tests/tests
         - tests/bootstrap.php
 
+    scanFiles:
+        - build/stubs/turbocov.php
+
     resultCachePath: %tmpDir%/php-code-coverage-12.5.php
 
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
